@@ -2,7 +2,6 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router';
 import { ConnectedRouter } from 'react-router-redux';
-import '../../ReactotronConfig';
 import { PersistGate } from 'redux-persist/es/integration/react';
 import createStore, { history } from '../../store';
 
