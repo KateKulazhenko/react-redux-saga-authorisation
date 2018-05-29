@@ -8,7 +8,6 @@ import createStore, { history } from '../../store';
 import Login from '../Auth';
 import {PrivateRouteContainer as PrivateRoute} from '../Auth';
 import Home from '../Home';
-import MainPage from '../MainPage';
 
 const { store, persistor} = createStore();
 
@@ -20,7 +19,6 @@ const App = () => {
                     <Switch>
                         <PrivateRoute exact path="/" component={Home}/>
                         <Route exact path="/login" component={Login}/>
-                        <PrivateRoute path="/film" component={MainPage}/>
                     </Switch>
                 </ConnectedRouter>
             </PersistGate>

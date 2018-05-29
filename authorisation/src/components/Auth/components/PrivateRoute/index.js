@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Route, Redirect} from 'react-router-dom';
 
-const PrivateRoute = ({component: Component, user, ...rest}) => (
-    <Route {...rest} render={(props) => {
+const PrivateRoute = ({component: Component, user, ...rest}) => {
+    console.log(user);
+    return (<Route {...rest} render={(props) => {
         let component;
 
         if (user) {
@@ -13,10 +14,9 @@ const PrivateRoute = ({component: Component, user, ...rest}) => (
         }
 
         return component;
-    }
-    }
-    />
-);
+    }}
+    />);
+};
 
 PrivateRoute.propTypes = {
     component: PropTypes.object.isRequired,
