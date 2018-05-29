@@ -7,7 +7,7 @@ import { LOGIN_FORM } from '../constants';
 const messageError = 'Wrong email or password';
 
 function* redirectToDashboard() {
-    yield put(push('/film'));
+    yield put(push('/'));
 }
 
 function* hadlerError() {

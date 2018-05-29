@@ -7,7 +7,6 @@ import * as actionCreators from '../actions';
 import Form from '../components/Login';
 
 class LoginContainer extends React.Component {
-
     onSubmit = (data) => {
         this.props.actions.sendLoginRequest(data);
     };
