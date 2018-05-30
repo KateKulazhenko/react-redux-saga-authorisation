@@ -5,5 +5,9 @@ export default {
         params: {
             email: payload.email
         }
+    }),
+    sendMoviesRequest: () => ({
+        url: '/photos',
+        method: 'get'
     })
 }
