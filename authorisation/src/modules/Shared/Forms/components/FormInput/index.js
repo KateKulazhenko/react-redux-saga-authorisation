@@ -12,6 +12,7 @@ const FormInput = ({input, label, type, meta: {touched, error}, classes}) => (
             type={type}
             placeholder={label}
             label={label}
+            fullWidth
         />
         {touched && error && <div className={classes.error}>{error}</div>}
     </div>

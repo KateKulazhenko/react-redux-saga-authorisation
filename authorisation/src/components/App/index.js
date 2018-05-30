@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router';
 import { ConnectedRouter } from 'react-router-redux';
-
+import './styles.css';
 import { PersistGate } from 'redux-persist/es/integration/react';
 import createStore, { history } from '../../store';
 
@@ -14,16 +14,18 @@ const { store, persistor} = createStore();
 
 const App = () => {
     return (
-        <Provider store={store}>
-            <PersistGate persistor={persistor}>
-                <ConnectedRouter history={history}>
-                    <Switch>
-                        <PrivateRoute exact path="/" component={Home}/>
-                        <Route exact path="/login" component={Login}/>
-                    </Switch>
-                </ConnectedRouter>
-            </PersistGate>
-        </Provider>
+        <div className="App">
+            <Provider store={store}>
+                <PersistGate persistor={persistor}>
+                    <ConnectedRouter history={history}>
+                        <Switch>
+                            <PrivateRoute exact path="/" component={Home}/>
+                            <Route exact path="/login" component={Login}/>
+                        </Switch>
+                    </ConnectedRouter>
+                </PersistGate>
+            </Provider>
+        </div>
     )
 };
 
