@@ -1,32 +1,32 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import { Route, Switch } from 'react-router';
-import { ConnectedRouter } from 'react-router-redux';
-import '../../ReactotronConfig';
-import { PersistGate } from 'redux-persist/es/integration/react';
-import createStore, { history } from '../../store';
+import React from 'react'
+import { Provider } from 'react-redux'
+import { Route, Switch } from 'react-router'
+import { ConnectedRouter } from 'react-router-redux'
+import './styles.css'
+import { PersistGate } from 'redux-persist/es/integration/react'
+import createStore, { history } from '../../store'
 
-import Login from '../Auth';
-import {PrivateRouteContainer as PrivateRoute} from '../Auth';
-import Home from '../Home';
-import MainPage from '../MainPage';
+import Login from '../../modules/Auth'
+import { PrivateRouteContainer as PrivateRoute } from '../../modules/Auth'
+import Home from '../../components/Home'
 
-const { store, persistor} = createStore();
+const { store, persistor } = createStore()
 
 const App = () => {
-    return (
-        <Provider store={store}>
-            <PersistGate persistor={persistor}>
-                <ConnectedRouter history={history}>
-                    <Switch>
-                        <PrivateRoute exact path="/" component={Home}/>
-                        <Route exact path="/login" component={Login}/>
-                        <PrivateRoute path="/film" component={MainPage}/>
-                    </Switch>
-                </ConnectedRouter>
-            </PersistGate>
-        </Provider>
-    )
-};
+  return (
+    <div className='App'>
+      <Provider store={store}>
+        <PersistGate persistor={persistor}>
+          <ConnectedRouter history={history}>
+            <Switch>
+              <Route exact path='/' component={Login} />
+              <PrivateRoute exact path='/home' component={Home} />
+            </Switch>
+          </ConnectedRouter>
+        </PersistGate>
+      </Provider>
+    </div>
+  )
+}
 
-export default App;
+export default App
